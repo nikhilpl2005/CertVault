@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CertVault - Digital Certificate Storage</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 3.2L4.8 9.6V16C4.8 23.2 9.6 29.6 16 32C22.4 29.6 27.2 23.2 27.2 16V9.6L16 3.2Z' fill='%23B8956A'/%3E%3Cpath d='M11.2 16L14.4 19.2L20.8 12.8' stroke='white' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo" onclick="event.preventDefault(); navigateToPage('home');">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10 2L3 6V10C3 14.5 6 18.5 10 20C14 18.5 17 14.5 17 10V6L10 2Z" stroke="#B8956A" stroke-width="1.5" stroke-linejoin="round"/>
+                    <path d="M7 10L9 12L13 8" stroke="#B8956A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>CertVault</span>
+            </a>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#upload" class="nav-link">Upload</a>
+                <a href="#certificates" class="nav-link">Certificates</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero page-section active" id="home" data-page="home">
+        <div class="hero-content">
+            <div class="badge">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 1L2 4V7C2 10.5 4.5 13.5 7 14.5C9.5 13.5 12 10.5 12 7V4L7 1Z" stroke="#B8956A" stroke-width="1.2" stroke-linejoin="round"/>
+                </svg>
+                <span>Secure & Reliable</span>
+            </div>
+            <h1 class="hero-title">Digital Certificate Storage System</h1>
+            <p class="hero-description">
+                A secure and elegant platform to upload, store, and manage your academic 
+                certificates and digital documents. Built with simplicity and security in mind.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary" onclick="navigateToPage('upload')">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 10V12.6667C14 13.0203 13.8595 13.3594 13.6095 13.6095C13.3594 13.8595 13.0203 14 12.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11.3333 5.33333L8 2L4.66667 5.33333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 2V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Upload Certificate
+                </button>
+                <button class="btn btn-secondary" onclick="navigateToPage('certificates')">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 14V12.6667C14 11.9594 13.719 11.2811 13.219 10.781C12.7189 10.281 12.0406 10 11.3333 10H4.66667C3.95942 10 3.28115 10.281 2.78105 10.781C2.28095 11.2811 2 11.9594 2 12.6667V14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 7.33333C9.47276 7.33333 10.6667 6.13943 10.6667 4.66667C10.6667 3.19391 9.47276 2 8 2C6.52724 2 5.33333 3.19391 5.33333 4.66667C5.33333 6.13943 6.52724 7.33333 8 7.33333Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    View Certificates
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Features Section -->
+    <section class="features page-section active" data-page="home">
+        <div class="features-header">
+            <h2 class="section-title">Core Features</h2>
+            <p class="section-subtitle">Everything you need for efficient certificate management</p>
+        </div>
+        
+        <div class="features-grid">
+            <!-- Upload Feature -->
+            <div class="feature-card" data-feature="upload">
+                <div class="feature-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28 20V25.3333C28 26.0406 27.719 26.7189 27.219 27.219C26.7189 27.719 26.0406 28 25.3333 28H6.66667C5.95942 28 5.28115 27.719 4.78105 27.219C4.28095 26.7189 4 26.0406 4 25.3333V20" stroke="#B8956A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M22.6667 10.6667L16 4L9.33333 10.6667" stroke="#B8956A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 4V20" stroke="#B8956A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Upload Certificates</h3>
+                <p class="feature-description">
+                    Drag and drop or select PDF certificates to upload instantly. 
+                    Secure storage with instant processing.
+                </p>
+            </div>
+
+            <!-- Store Feature -->
+            <div class="feature-card" data-feature="store">
+                <div class="feature-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M25.3333 4H6.66667C5.19391 4 4 5.19391 4 6.66667V25.3333C4 26.8061 5.19391 28 6.66667 28H25.3333C26.8061 28 28 26.8061 28 25.3333V6.66667C28 5.19391 26.8061 4 25.3333 4Z" stroke="#B8956A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10.6667 16L14.6667 20L21.3333 12" stroke="#B8956A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Store Information</h3>
+                <p class="feature-description">
+                    Save certificate names and details with each upload. 
+                    Organize and categorize your documents efficiently.
+                </p>
+            </div>
+
+            <!-- Search Feature -->
+            <div class="feature-card" data-feature="search">
+                <div class="feature-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14.6667 25.3333C20.5577 25.3333 25.3333 20.5577 25.3333 14.6667C25.3333 8.77563 20.5577 4 14.6667 4C8.77563 4 4 8.77563 4 14.6667C4 20.5577 8.77563 25.3333 14.6667 25.3333Z" stroke="#B8956A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M28 28L22.2 22.2" stroke="#B8956A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Search & Filter</h3>
+                <p class="feature-description">
+                    Find certificates quickly by name or category. 
+                    Powerful search to locate documents instantly.
+                </p>
+            </div>
+
+            <!-- Download Feature -->
+            <div class="feature-card" data-feature="download">
+                <div class="feature-icon">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M28 20V25.3333C28 26.0406 27.719 26.7189 27.219 27.219C26.7189 27.719 26.0406 28 25.3333 28H6.66667C5.95942 28 5.28115 27.719 4.78105 27.219C4.28095 26.7189 4 26.0406 4 25.3333V20" stroke="#B8956A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9.33333 13.3333L16 20L22.6667 13.3333" stroke="#B8956A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 20V4" stroke="#B8956A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <h3 class="feature-title">Easy Download</h3>
+                <p class="feature-description">
+                    Download your certificates anytime, anywhere. 
+                    Quick access to all your stored documents.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <!-- Upload Section -->
+    <section class="upload-section page-section" id="upload" data-page="upload">
+        <div class="upload-container">
+            <h2 class="section-title">Upload Certificate</h2>
+            <p class="section-subtitle">Add a new certificate to your vault</p>
+            
+            <form id="uploadForm" class="upload-form">
+                <!-- File Upload Area -->
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-icon" id="uploadIcon">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M42 30V38C42 39.0609 41.5786 40.0783 40.8284 40.8284C40.0783 41.5786 39.0609 42 38 42H10C8.93913 42 7.92172 41.5786 7.17157 40.8284C6.42143 40.0783 6 39.0609 6 38V30" stroke="#B8956A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M34 16L24 6L14 16" stroke="#B8956A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M24 6V30" stroke="#B8956A" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <div class="file-icon" id="fileIcon" style="display: none;">
+                        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M28 6H12C10.9391 6 9.92172 6.42143 9.17157 7.17157C8.42143 7.92172 8 8.93913 8 10V38C8 39.0609 8.42143 40.0783 9.17157 40.8284C9.92172 41.5786 10.9391 42 12 42H36C37.0609 42 38.0783 41.5786 38.8284 40.8284C39.5786 40.0783 40 39.0609 40 38V18L28 6Z" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M28 6V18H40" stroke="#10B981" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </div>
+                    <h3 class="upload-title">Drop your PDF here</h3>
+                    <p class="upload-text">or click to browse</p>
+                    <p class="upload-hint" id="fileName"></p>
+                    <input type="file" id="fileInput" accept=".pdf" style="display: none;">
+                </div>
+                
+                <!-- Certificate Details -->
+                <div class="form-group">
+                    <label for="certName" class="form-label">
+                        Certificate Name *
+                    </label>
+                    <input 
+                        type="text" 
+                        id="certName" 
+                        class="form-input" 
+                        placeholder="e.g., Bachelor of Science in Computer Science"
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label for="certIssuer" class="form-label">
+                        Issued By *
+                    </label>
+                    <input 
+                        type="text" 
+                        id="certIssuer" 
+                        class="form-input" 
+                        placeholder="e.g., Stanford University"
+                        required
+                    >
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label">
+                        Issue Date *
+                    </label>
+                    <div class="date-inputs">
+                        <input 
+                            type="text" 
+                            id="certMonth" 
+                            class="date-input" 
+                            placeholder="MM"
+                            maxlength="2"
+                            required
+                        >
+                        <span class="date-separator">/</span>
+                        <input 
+                            type="text" 
+                            id="certDay" 
+                            class="date-input" 
+                            placeholder="DD"
+                            maxlength="2"
+                            required
+                        >
+                        <span class="date-separator">/</span>
+                        <input 
+                            type="text" 
+                            id="certYear" 
+                            class="date-input year-input" 
+                            placeholder="YYYY"
+                            maxlength="4"
+                            required
+                        >
+                    </div>
+                    <p class="error-message" id="dateError" style="display: none;">
+                        Please enter a valid date
+                    </p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="certCategory" class="form-label">
+                        Category *
+                    </label>
+                    <select id="certCategory" class="form-select" required>
+                        <option value="">Select a category</option>
+                        <option value="degree">Degree Certificate</option>
+                        <option value="course">Course Completion</option>
+                        <option value="achievement">Achievement</option>
+                        <option value="professional">Professional</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="certNotes" class="form-label">
+                        Notes (Optional)
+                    </label>
+                    <textarea 
+                        id="certNotes" 
+                        class="form-textarea" 
+                        rows="3"
+                        placeholder="Add any additional notes about this certificate..."
+                    ></textarea>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-large" id="submitBtn">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M17.5 12.5V15.8333C17.5 16.2754 17.3244 16.6993 17.0118 17.0118C16.6993 17.3244 16.2754 17.5 15.8333 17.5H4.16667C3.72464 17.5 3.30072 17.3244 2.98816 17.0118C2.67559 16.6993 2.5 16.2754 2.5 15.8333V12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14.1667 6.66667L10 2.5L5.83333 6.66667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M10 2.5V12.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span id="submitBtnText">Upload Certificate</span>
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section class="certificates-section page-section" id="certificates" data-page="certificates">
+        <div class="section-container">
+            <div class="certificates-header">
+                <div>
+                    <h2 class="section-title">Your Certificates</h2>
+                    <p class="section-subtitle">Manage and download your stored certificates</p>
+                </div>
+                <div class="search-box">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9.16667 15.8333C12.8486 15.8333 15.8333 12.8486 15.8333 9.16667C15.8333 5.48477 12.8486 2.5 9.16667 2.5C5.48477 2.5 2.5 5.48477 2.5 9.16667C2.5 12.8486 5.48477 15.8333 9.16667 15.8333Z" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17.5 17.5L13.875 13.875" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <input type="text" id="searchInput" placeholder="Search certificates...">
+                </div>
+            </div>
+
+            <div class="filter-tabs">
+                <button class="filter-tab active" data-filter="all">All</button>
+                <button class="filter-tab" data-filter="degree">Degree</button>
+                <button class="filter-tab" data-filter="course">Course</button>
+                <button class="filter-tab" data-filter="achievement">Achievement</button>
+                <button class="filter-tab" data-filter="professional">Professional</button>
+            </div>
+
+            <div class="certificates-grid" id="certificatesGrid">
+                <div class="empty-state">
+                    <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50.6667 8H13.3333C10.3878 8 8 10.3878 8 13.3333V50.6667C8 53.6122 10.3878 56 13.3333 56H50.6667C53.6122 56 56 53.6122 56 50.6667V13.3333C56 10.3878 53.6122 8 50.6667 8Z" stroke="#E5E7EB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M21.3333 32L29.3333 40L42.6667 24" stroke="#E5E7EB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h3>No certificates yet</h3>
+                    <p>Upload your first certificate to get started</p>
+                    <button class="btn btn-primary" onclick="navigateToPage('upload')">Upload Certificate</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificate Viewer Modal -->
+    <div class="modal-overlay" id="viewerModal">
+        <div class="viewer-container">
+            <div class="viewer-header">
+                <h3 class="viewer-title" id="viewerTitle">Certificate</h3>
+                <button class="viewer-close" id="viewerCloseBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="viewer-content" id="viewerContent">
+                <iframe id="pdfViewer" frameborder="0"></iframe>
+            </div>
+            <div class="viewer-actions">
+                <button class="btn btn-secondary" id="viewerDownloadBtn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M14 10V12.6667C14 13.0203 13.8595 13.3594 13.6095 13.6095C13.3594 13.8595 13.0203 14 12.6667 14H3.33333C2.97971 14 2.64057 13.8595 2.39052 13.6095C2.14048 13.3594 2 13.0203 2 12.6667V10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M4.66667 6.66667L8 10L11.3333 6.66667" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M8 10V2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Download
+                </button>
+                <button class="btn btn-danger" id="viewerDeleteBtn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 4H3.33333H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M5.33333 4V2.66667C5.33333 2.31304 5.47381 1.97391 5.72386 1.72386C5.97391 1.47381 6.31304 1.33333 6.66667 1.33333H9.33333C9.68696 1.33333 10.0261 1.47381 10.2761 1.72386C10.5262 1.97391 10.6667 2.31304 10.6667 2.66667V4M12.6667 4V13.3333C12.6667 13.687 12.5262 14.0261 12.2761 14.2761C12.0261 14.5262 11.687 14.6667 11.3333 14.6667H4.66667C4.31304 14.6667 3.97391 14.5262 3.72386 14.2761C3.47381 14.0261 3.33333 13.687 3.33333 13.3333V4H12.6667Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Delete
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="modal-overlay" id="deleteModal">
+        <div class="modal-container">
+            <div class="modal-icon-wrapper">
+                <div class="modal-icon">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M6 12H10H42" stroke="#EF4444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M16 12V8C16 6.93913 16.4214 5.92172 17.1716 5.17157C17.9217 4.42143 18.9391 4 20 4H28C29.0609 4 30.0783 4.42143 30.8284 5.17157C31.5786 5.92172 32 6.93913 32 8V12M38 12V40C38 41.0609 37.5786 42.0783 36.8284 42.8284C36.0783 43.5786 35.0609 44 34 44H14C12.9391 44 11.9217 43.5786 11.1716 42.8284C10.4214 42.0783 10 41.0609 10 40V12H38Z" stroke="#EF4444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M20 22V34" stroke="#EF4444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M28 22V34" stroke="#EF4444" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+            </div>
+            <h3 class="modal-title">Delete Certificate?</h3>
+            <p class="modal-description">
+                Are you sure you want to delete this certificate? This action cannot be undone 
+                and the certificate will be permanently removed from your vault.
+            </p>
+            <div class="modal-actions">
+                <button class="btn btn-secondary modal-btn" id="cancelDeleteBtn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4L4 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M4 4L12 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Cancel
+                </button>
+                <button class="btn btn-danger modal-btn" id="confirmDeleteBtn">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2 4H3.33333H14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M5.33333 4V2.66667C5.33333 2.31304 5.47381 1.97391 5.72386 1.72386C5.97391 1.47381 6.31304 1.33333 6.66667 1.33333H9.33333C9.68696 1.33333 10.0261 1.47381 10.2761 1.72386C10.5262 1.97391 10.6667 2.31304 10.6667 2.66667V4M12.6667 4V13.3333C12.6667 13.687 12.5262 14.0261 12.2761 14.2761C12.0261 14.5262 11.687 14.6667 11.3333 14.6667H4.66667C4.31304 14.6667 3.97391 14.5262 3.72386 14.2761C3.47381 14.0261 3.33333 13.687 3.33333 13.3333V4H12.6667Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Delete Forever
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10 18.3333C14.6024 18.3333 18.3333 14.6024 18.3333 10C18.3333 5.39763 14.6024 1.66667 10 1.66667C5.39763 1.66667 1.66667 5.39763 1.66667 10C1.66667 14.6024 5.39763 18.3333 10 18.3333Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7.5 10L9.16667 11.6667L12.5 8.33333" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span id="toastMessage"></span>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading-overlay" id="loadingOverlay" style="display: none;">
+        <div class="spinner"></div>
+        <p>Processing certificate...</p>
+    </div>
+
+    <script src="script-backend.js"></script>
+</body>
+</html>

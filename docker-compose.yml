@@ -1,0 +1,49 @@
+services:
+  # Backend Service
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: certvault-backend
+    env_file:
+      - ./backend/.env
+    restart: unless-stopped
+    networks:
+      - certvault-network
+    # Internal port only - not exposed externally
+    expose:
+      - "5000"
+
+  # Frontend Service
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: certvault-frontend
+    depends_on:
+      - backend
+    restart: unless-stopped
+    networks:
+      - certvault-network
+    # Internal port only - not exposed externally
+    expose:
+      - "80"
+
+  # NGINX Reverse Proxy
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    container_name: certvault-nginx
+    ports:
+      - "80:80"  # Only NGINX is exposed externally
+    depends_on:
+      - backend
+      - frontend
+    restart: unless-stopped
+    networks:
+      - certvault-network
+
+networks:
+  certvault-network:
+    driver: bridge  
